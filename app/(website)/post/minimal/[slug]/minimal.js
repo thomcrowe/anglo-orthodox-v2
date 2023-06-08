@@ -26,69 +26,51 @@ export default function Post(props) {
 
   return (
     <>
-      <div className="relative z-0 flex min-h-[calc(100vh-30vh)] items-center">
-        {imageProps && (
-          <div className="absolute -z-10 h-full w-full before:absolute before:z-10 before:h-full before:w-full before:bg-black/30">
-            <Image
-              src={imageProps.src}
-              alt={post.mainImage?.alt || "Thumbnail"}
-              loading="eager"
-              fill
-              sizes="100vw"
-              className="object-cover"
-            />
-          </div>
-        )}
-
-        <div className="mx-auto max-w-screen-md px-5 py-20">
-          <h1 className="text-brand-primary mb-3 mt-2 text-3xl font-semibold tracking-tight text-white lg:text-5xl lg:leading-tight">
+      <Container className="!p-0">
+        <div className="mx-auto mt-10 max-w-screen-md px-5 ">
+          <h1 className="text-brand-primary mb-3 mt-2 text-3xl font-semibold tracking-tight dark:text-white lg:text-5xl lg:leading-tight">
             {post.title}
           </h1>
 
           <div className="mt-8 flex space-x-3 text-gray-500 ">
-            <div className="flex flex-col gap-3 md:flex-row md:items-center">
-              <div className="flex gap-3">
-                <div className="relative h-5 w-5 flex-shrink-0">
-                  {AuthorimageProps && (
+            <div className="flex items-center gap-3">
+              <div className="relative h-5 w-5 flex-shrink-0">
+                {AuthorimageProps && (
+                  <Link href={`/author/${post.author.slug.current}`}>
+                    <Image
+                      src={AuthorimageProps.src}
+                      alt={post?.author?.name}
+                      className="rounded-full object-cover"
+                      fill
+                      sizes="100vw"
+                    />
+                  </Link>
+                )}
+              </div>
+              <div>
+                <div className="flex items-center space-x-2 text-sm">
+                  <p className="text-gray-800 dark:text-gray-400">
                     <Link
                       href={`/author/${post.author.slug.current}`}>
-                      <Image
-                        src={AuthorimageProps.src}
-                        alt={post?.author?.name}
-                        className="rounded-full object-cover"
-                        fill
-                        sizes="100vw"
-                      />
+                      {post.author.name}
                     </Link>
-                  )}
-                </div>
-                <p className="text-gray-100 ">
-                  <Link href={`/author/${post.author.slug.current}`}>
-                    {post.author.name}
-                  </Link>{" "}
-                  <span className="hidden pl-2 md:inline"> ·</span>
-                </p>
-              </div>
-
-              <div>
-                <div className="flex space-x-2 text-sm md:flex-row md:items-center">
+                    ·
+                  </p>
                   <time
-                    className="text-gray-100 "
+                    className="text-gray-500 dark:text-gray-400"
                     dateTime={post?.publishedAt || post._createdAt}>
                     {format(
                       parseISO(post?.publishedAt || post._createdAt),
                       "MMMM dd, yyyy"
                     )}
                   </time>
-                  <span className="text-gray-100">
-                    · {post.estReadingTime || "5"} min read
-                  </span>
+                  <span>· {post.estReadingTime || "5"} min read</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </Container>
 
       {/* {post?.mainImage && <MainImage image={post.mainImage} />} */}
       <Container>

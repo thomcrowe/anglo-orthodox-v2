@@ -1,4 +1,5 @@
 import { cx } from "@/utils/all";
+import { pink } from "tailwindcss/colors";
 
 export default function Label(props) {
   const color = {

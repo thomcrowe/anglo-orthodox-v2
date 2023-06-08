@@ -8,7 +8,7 @@ export default function HomeLifeStyle({ posts }) {
   return (
     <>
       {featuredPost && featuredPost.length && (
-        <Featured post={featuredPost[0]} pathPrefix="lifestyle" />
+        <Featured post={featuredPost[0]} pathPrefix="" />
       )}
 
       <Container large>
@@ -27,7 +27,7 @@ export default function HomeLifeStyle({ posts }) {
                   <PostList
                     post={post}
                     preloadImage={true}
-                    pathPrefix="lifestyle"
+                    pathPrefix=""
                     fontSize="large"
                     aspect="custom"
                     fontWeight="normal"
@@ -39,7 +39,7 @@ export default function HomeLifeStyle({ posts }) {
                   key={post._id}
                   post={post}
                   aspect="landscape"
-                  pathPrefix="lifestyle"
+                  pathPrefix=""
                   fontWeight="normal"
                   preloadImage={true}
                 />
@@ -59,7 +59,6 @@ export default function HomeLifeStyle({ posts }) {
               key={post._id}
               post={post}
               fontWeight="normal"
-              pathPrefix="lifestyle"
               aspect="square"
             />
           ))}
