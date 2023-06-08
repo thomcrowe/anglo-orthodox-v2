@@ -1,40 +1,29 @@
 import Container from "@/components/container";
-import { urlForImage } from "@/lib/sanity/image";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function About({ authors, settings }) {
   return (
+
     <Container>
+
       <h1 className="mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white">
         About
       </h1>
+      <div className="w-full">
+          <Image
+          src="/img/anglo-orthodox.jpg"
+          alt="mushroom"
+          width="1980"
+          height="1200"
+        />
+        </div>  
       <div className="text-center">
+        <br></br>
         <p className="text-lg">The light of the East at home in the West.</p>
       </div>
 
-      <div className="grid grid-cols-3 gap-5 mt-6 mb-16 md:mt-16 md:mb-32 md:gap-16">
-        {authors.slice(0, 3).map(author => {
-          const imageProps = urlForImage(author?.image) || null;
-          return (
-            <div
-              key={author._id}
-              className="relative overflow-hidden rounded-md aspect-square odd:translate-y-10 odd:md:translate-y-16">
-              <Link href={`/author/${author.slug}`}>
-                <Image
-                  src={imageProps.src}
-                  alt={author.name || " "}
-                  fill
-                  sizes="(max-width: 320px) 100vw, 320px"
-                  className="object-cover"
-                />
-              </Link>
-            </div>
-          );
-        })}
-      </div>
-
-      <div className="mx-auto prose text-center dark:prose-invert mt-14">
+      <div className="mx-auto prose text-left dark:prose-invert mt-14">
          <p>
             Anglo-Orthodoxy shares a spiritual history with the Anglo-Catholic tradition. The Anglo-Catholic tradition traces its roots back to the 18th Century Oxford Movement and the Tractarians who argued that Anglicanism was truly a part of the Catholic tradition of the Christian Church and carried the flame of Apostolic Succession. Anglo-Catholoism brought a return to elements of the liturgy that were lost in the BCP, prioritized weekly communion, returned altar candles, brought back incense, just to name a few contributions.
           </p>
@@ -44,7 +33,7 @@ export default function About({ authors, settings }) {
           <p>            
             We see the Anglican Tradition as a beautiful tradition that offers space <i>via media</i> , allowing those of us who are drawn to and feel comfortable with expressions of worship typically associated with the East. 
           </p>
-          <font size="+2">So why Anglo-Orthodoxy?</font> 
+          <font size="+1">So why Anglo-Orthodoxy?</font> 
           <p>There are many, many treasures from the Christian East that are not well known here in the West. Anglo-Orthodoxy looks so bring that light and share it here within our Anglican Tradition, much as Archbishop Rowan Williams did with his book <a href="https://www.amazon.com/Looking-East-Winter-Contemporary-Christian/dp/1472989244">Looking East in Winter: Contemporary Thought and the Eastern Christian Tradition</a> - though, admittedly not on par with the work of the Archbishop.  We hope you will enjoy insights from the writings of the East, explorations of practices, and thoughts on an Eastern worldview.</p>
         <p>
           <Link href="/contact">Get in touch</Link>
