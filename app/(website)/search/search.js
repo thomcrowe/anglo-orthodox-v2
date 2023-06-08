@@ -49,7 +49,7 @@ export default function Search(props) {
       <Container>
         {!query && (
           <div className="flex items-center justify-center h-40">
-            <span className="text-lg text-gray-500">"Looking for something? Search and see what you find.¯</span>
+            <span className="text-lg text-gray-500">Looking for something? Search and see what you find.</span>
           </div>
         )}
         {query && data?.length === 0 && (
