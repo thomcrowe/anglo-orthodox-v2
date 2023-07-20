@@ -12,7 +12,7 @@ export default function HomeLifeStyle({ posts }) {
       )}
 
       <Container large>
-        {featuredPost.length > 4 && (
+        {featuredPost.length > 3 && (
           <>
             <div className="flex items-center justify-center mt-10">
               <h2 className="text-2xl">
