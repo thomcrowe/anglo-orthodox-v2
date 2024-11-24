@@ -25,12 +25,12 @@ export async function sharedMetaData(params) {
     title: {
       default:
         settings?.title ||
-        "Stablo Pro - Blog Template for Next.js & Sanity CMS",
-      template: "%s | Stablo"
+        "The faith of the East at home at the West",
+      template: "%s | Anglo-Orthodox"
     },
     description:
       settings?.description ||
-      "Pro version of Stablo, popular open-source next.js and sanity blog template",
+      "A site for thoughts and ramblings about the intersection of Eastern and Anglican Christianity. ",
     keywords: ["Next.js", "Sanity", "Tailwind CSS"],
     authors: [{ name: "Surjith" }],
     canonical: settings?.url,
