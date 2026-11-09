@@ -3,6 +3,7 @@ import { Providers } from "./providers";
 import { cx } from "@/utils/all";
 import { Inter, Lora } from "next/font/google";
 import { Analytics } from '@vercel/analytics/react';
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -13,6 +14,8 @@ const lora = Lora({
   subsets: ["latin"],
   variable: "--font-lora"
 });
+
+const GA_MEASUREMENT_ID = "G-WZSQHCLBYH";
 
 export default function RootLayout({
   children
@@ -27,6 +30,18 @@ export default function RootLayout({
       <body className="antialiased text-gray-800 dark:bg-black dark:text-gray-400">
         <Providers>{children}</Providers>
         <Analytics />
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
       </body>
     </html>
   );
